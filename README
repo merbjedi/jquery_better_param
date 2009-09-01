@@ -1,0 +1,5 @@
+JQuery Better Param
+===================
+
+This query plugin overwrites the default jQuery.param method, extending it to allow nested objects, 
+and convert them to be easily passed as parameters over HTTP.
