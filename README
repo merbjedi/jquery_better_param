@@ -11,16 +11,16 @@ examples:
       id: 1, 
       name: "Cat1"
     }
-  }); //=> "categories%5Bid%5D=1&categories%5Bname%5D=Cat1"
-      //=> "categories[id]=1&categories[name]=Cat1" (unescaped)
+  });
+  //=> "categories[id]=1&categories[name]=Cat1" (unescaped)
   
   $.param({
     "categories[]": [
       {id: 1, name: "Cat1"},
       {id: 2, name: "Cat2"}
     ]
-  }); //=> "categories%5B%5D%5Bid%5D=1&categories%5B%5D%5Bname%5D=Cat1&categories%5B%5D%5Bid%5D=2&categories%5B%5D%5Bname%5D=Cat2"
-      //=> "categories[][id]=1&categories[][name]=Cat1&categories[][id]=2&categories[][name]=Cat2" (unescaped)
+  }); 
+  //=> "categories[][id]=1&categories[][name]=Cat1&categories[][id]=2&categories[][name]=Cat2" (unescaped)
 
 
 even hugely complex object structures work fine:
