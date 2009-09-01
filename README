@@ -23,6 +23,21 @@ examples:
       //=> "categories[][id]=1&categories[][name]=Cat1&categories[][id]=2&categories[][name]=Cat2" (unescaped)
 
 
+even hugely complex object structures work fine:
+
+  //try this one out...
+  $.param({
+    "person": {
+      name: "Joe Blow", 
+      address: "51 Westinghouse Ave", 
+      "categories[]": [
+        {id: 1, name: "cat1"}, 
+        {id: 2, name: "cat2"}
+      ]
+    }
+  });
+
+
 Running the Tests:
 ===================
 
