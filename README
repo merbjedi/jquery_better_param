@@ -46,3 +46,12 @@ Patch for jQuery Trunk
 
 Patch for the latest version of jQuery trunk (rev 6533) is available here:
 http://gist.github.com/178902
+
+
+Get Patched jQuery Trunk
+===================
+
+Or you can just download the prepatched jquery trunk folder from here:
+http://idisk.me.com/jcnetdev/Public/jquery_rev6533_patched.zip
+
+just unzip, and run the jquery unit tests to verify functionality!
