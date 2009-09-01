@@ -26,7 +26,8 @@ jQuery.extend({
 					};
 				} else if( typeof(obj) == "object" ) {
 					for ( var j in obj ) {
-						buildParams(obj[j], (prefix ? (prefix+"["+j+"]") : j) );
+						var postfix = ((j.indexOf("[]") > 0) ? "[]" : ""); // move the brackets to the end (if applicable)
+						buildParams(obj[j], (prefix ? (prefix+"["+j.replace("[]", "")+"]"+postfix) : j) );
 					}
 				} else {
 					add( prefix, jQuery.isFunction(obj) ? obj() : obj );

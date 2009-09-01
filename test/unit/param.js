@@ -72,6 +72,7 @@ test("super nested jQuery.param() tests", function() {
   ////////////////
   params = {"foo": {beep: {beep2: {beep3: {beep4: "BEEEEEP"}}}}};
   equals( jQuery.param(params), "foo%5Bbeep%5D%5Bbeep2%5D%5Bbeep3%5D%5Bbeep4%5D=BEEEEEP", "very far nested object" );
+  // console.log(unescape(jQuery.param(params)));
   // "foo[beep][beep2][beep3][beep4]=BEEEEEP"
 
   // Ruby verification:
@@ -100,7 +101,8 @@ test("super duper nested jQuery.param() test", function(){
   // &person[categories][][id]=2
   // &person[categories][][name]=cat2
   
-  equals( jQuery.param(params), "person%5Bname%5D=Joe+Blow&person%5Baddress%5D=51+Westinhouse+Ave&person%5Bcategories%5D%5B%5D%5Bid%5D=1&person%5Bcategories%5D%5B%5D%5Bname%5D=cat1&person%5Bcategories%5D%5B%5D%5Bid%5D=2&person%5Bcategories%5D%5B%5D%5Bname%5D=cat2", "deep nested object collections");
+  equals( jQuery.param(params), "person%5Bname%5D=Joe+Blow&person%5Baddress%5D=51+Westinghouse+Ave&person%5Bcategories%5D%5B%5D%5Bid%5D=1&person%5Bcategories%5D%5B%5D%5Bname%5D=cat1&person%5Bcategories%5D%5B%5D%5Bid%5D=2&person%5Bcategories%5D%5B%5D%5Bname%5D=cat2", "deep nested object collections");
+  // console.log(unescape(jQuery.param(params)));
   // "person[name]=Joe+Blow&person[address]=51+Westinhouse+Ave&person[categories][][id]=1&person[categories][][name]=cat1&person[categories][][id]=2&person[categories][][name]=cat2"
 
   // Ruby verification
