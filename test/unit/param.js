@@ -21,7 +21,7 @@ test("base jQuery.param() tests", function() {
   // #=> {"someName"=>"3", "regularThing"=>"blah"}
 
   ////////////////
-  params = {"foo[]":["baz", 42, "All your base are belong to us"]};
+  params = {"foo[]": ["baz", 42, "All your base are belong to us"]};
   equals( jQuery.param(params), "foo%5B%5D=baz&foo%5B%5D=42&foo%5B%5D=All+your+base+are+belong+to+us", "more array" );
   // "foo[]=baz&foo[]=42&foo[]=All+your+base+are+belong+to+us"
 
@@ -57,6 +57,16 @@ test("nested jQuery.param() tests", function() {
   // Ruby verification:
   // Rack::Utils.parse_nested_query("foo%5Bbar%5D=baz&foo%5Bbeep%5D=42&foo%5Bbar%5D=baz2&foo%5Bbeep%5D=43")
   // #=> {"foo"=>{"beep"=>"43", "bar"=>"baz2"}}
+});
+
+test("nested jQuery.param() array tests", function() {
+  params = {"foo": {"bar[]": [1,2,3]}};
+  equals( jQuery.param(params), "foo%5Bbar%5D%5B%5D=1&foo%5Bbar%5D%5B%5D=2&foo%5Bbar%5D%5B%5D=3", "nested array within an object" );
+  // "foo[bar][]=1&foo[bar][]=2&foo[bar][]=3"
+  
+  // Ruby verification:
+  // Rack::Utils.parse_nested_query("foo%5Bbar%5D%5B%5D=1&foo%5Bbar%5D%5B%5D=2&foo%5Bbar%5D%5B%5D=3")
+  // #=> {"foo"=>{"bar"=>["1", "2", "3"]}}
 });
 
 test("super nested jQuery.param() tests", function() {
