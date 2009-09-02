@@ -12,13 +12,21 @@ test("base jQuery.param() tests", function() {
   // #=> {"quux"=>"All your base are belong to us", "baz"=>"42", "foo"=>"bar"}
 
   ////////////////
-  params = {someName: [1, 2, 3], regularThing: "blah" };
+  params = {"foo[]": ['a', 'b', 'c']};
+  equals( jQuery.param(params), "foo[]=a&foo[]=b&foo[]=c", "with array of strings" );
+  
+  // Ruby Verification
+  // Rack::Utils.parse_nested_query("foo[]=a&foo[]=b&foo[]=c")
+  // #=> {"foo"=>["a", "b", "c"]}
+  
+  ////////////////
+  params = {"someName[]": [1, 2, 3], regularThing: "blah" };
   equals( jQuery.param(params), "someName=1&someName=2&someName=3&regularThing=blah", "with array" );
-  // "someName=1&someName=2&someName=3&regularThing=blah"
+  // "someName[]=1&someName[]=2&someName[]=3&regularThing=blah"
 
   // Ruby Verification
-  // Rack::Utils.parse_nested_query("someName=1&someName=2&someName=3&regularThing=blah")
-  // #=> {"someName"=>"3", "regularThing"=>"blah"}
+  // Rack::Utils.parse_nested_query("someName[]=1&someName[]=2&someName[]=3&regularThing=blah")
+  // #=> {"someName"=>["1", "2", "3"], "regularThing"=>"blah"}
 
   ////////////////
   params = {"foo[]": ["baz", 42, "All your base are belong to us"]};
