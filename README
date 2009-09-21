@@ -49,24 +49,7 @@ Running the Tests:
 About this Plugin:
 ===================
 
-This plugin is meant as a demonstration of a pending patch to jQuery 1.3.3. 
-If you like it, review the code and ask @jeresig to integrate it into jQuery 1.3.3.
+This plugin is meant as a demonstration of a pending patch to jQuery 1.3.3. The patch has been applied as of rev 6534 of  the official jQuery repository and should appear in jQuery 1.3.3 once its out.
 
-The code is meant as a drop in replacement of the param: method on jQuery trunk. We will keep it up
-to date to support the latest trunk.
+This plugin is tested and is safe for use within jQuery 1.3.2 only. Any other jQuery versions, I'd suggest running the included unit tests to verify that its functional.
 
-
-Patch for jQuery Trunk
-===================
-
-Patch for the latest version of jQuery trunk (rev 6533) is available here:
-http://gist.github.com/178902
-
-
-Get Patched jQuery Trunk
-===================
-
-Or you can just download the prepatched jquery trunk folder from here:
-http://idisk.me.com/jcnetdev/Public/jquery_rev6533_patched.zip
-
-just unzip, and run the jquery unit tests to verify functionality!
